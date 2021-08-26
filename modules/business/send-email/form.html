@@ -1,0 +1,97 @@
+<div id=D__ID>
+    <section id=form_container__ID bp=576 style='display:flow-root;'>
+        <div class=header__ID>
+            <h1 class=t1__ID>Send Email to Patient</h1>
+        </div>
+    	<form id=F__ID>
+			<div class=r__ID>
+				<div w='100|50'>
+					<span><b>First Name</b></span>
+					<input type="text" name=First_Name required autocomplete=off />
+				</div>
+				<div w='100|50'>
+					<span><b>Last Name</b></span>
+					<input type=text name=Last_Name required autocomplete=off />
+				</div>
+			</div>
+			<div class=r__ID>
+				<div w='100|50'>
+					<span><b>Date of Birth</b></span>
+					<input type=date name=Date_of_Birth ></input>
+				</div>
+				<div w='100|50'>
+					<span><b>Email Address</b></span>
+					<input type=text name=Email ></input>
+				</div>
+			</div>
+			<div class=r__ID>
+				<div w='100|50'>
+					<span><b>Appointment with</b></span>
+					<input type=text name=Appointment_with ></input>
+				</div>
+			</div>
+			<div class=r__ID>
+				<div w='100|100'>
+					<span><b>Appointment Link</b></span>
+					<input type=text name=Appointment_link ></input>
+				</div>
+			</div>
+			<div class=r__ID>
+				<div w='100|100'>
+					<span><b>Email Template</b></span>
+					<select name=Template >
+                        <option></option>
+                        <option>Email 1</option>
+                        <option>Email 2</option>
+                        <option>Email 3</option>
+                    </select>
+				</div>
+			</div>
+			<div class=r__ID>
+				<div w='100|100'>
+                    <button id=submit__ID type=button >Send Email</button>
+				</div>
+			</div>
+    	</form>
+    </section>
+	VmInclude:__COMPONENT__/m/model.01.html
+    <script>
+    	function F__ID(){
+    		//-------------------------------------
+			/*V mInclude:__COMPONENT__/f/form.01.js*/
+			new ResizeObserver($vm.responsive).observe(form_container__ID);
+			//-------------------------------------
+            $('#submit__ID').on('click',function(){
+                var First_Name=$('#F__ID input[name=First_Name]').val();
+                var Last_Name=$('#F__ID input[name=Last_Name]').val();
+                var Date_of_Birth=$('#F__ID input[name=Date_of_Birth]').val();
+                var Email=$('#F__ID input[name=Email]').val();
+                var Appointment_with=$('#F__ID input[name=Appointment_with]').val();
+                var Appointment_link=$('#F__ID input[name=Appointment_link]').val();
+                var URL="?first name="+First_Name+"&surname="+Last_Name+"&DOB="+encodeURI(Date_of_Birth);
+                URL=encodeURI(URL);
+				var data={
+                    first_name: First_Name,
+                    last_name: Last_Name,
+                    date_of_birth: Date_of_Birth,
+                    email: Email,
+                    appointment_with: Appointment_with,
+                    appointment_link: Appointment_link,
+                    snapforms_url: URL
+                }
+                $vm.request({cmd:'flow',flowid:$('#F__ID select[name=Template]').val(),data:data},function(res){
+                    if(res.status=="ok") alert("The email has been sent.");
+					else if(res.status=="np") alert("No permissions.");
+					else if(res.status=="np") alert("No permissions.");
+                })
+            })
+			//-------------------------------------
+		}
+    </script>
+    <style>
+        #form_container__ID{
+            max-width:700px;
+        }
+		/*VmInclude:__CURRENT_PATH__form.css*/
+    </style>
+</div>
