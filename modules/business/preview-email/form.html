@@ -24,25 +24,15 @@
                 },'text');
             })
 			//-------------------------------------
-            function htmlEntities(str) {
-                return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-            }
             $('#send__ID').on('click',function(){
-                
                 var h=$('#preview__ID').html();
-                //alert(h)            
-                //console.log(h);
-                //return;            
-                
-                //alert(btoa(unescape(encodeURIComponent(h))));
-                //return;
                 var data=m.input.data;
                 var d={
                     body:btoa(unescape(encodeURIComponent(h))),
                     email:data.email,
                     subject:data.template
                 }
-				$vm.request({cmd:'flow',flowid:data.template,data:d},function(res){
+                $vm.request({cmd:'flow',flowid:data.template,data:d},function(res){
                     if(res.status=="ok") alert("The email has been sent.");
 					else if(res.status=="np") alert("No permissions.");
                 })

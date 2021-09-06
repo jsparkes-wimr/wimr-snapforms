@@ -9,4 +9,7 @@
     //-------------------------------------------------------------------------------------
     m[p+"preview-email"]={url:H+"/business/preview-email/form.html",prefix:p};
     m[p+"email-appointment-confirmation"]={url:E+"/appointment-confirmation.html"};
+    m[p+"about_the_woolcock_pdf"]={url:E+"/about_the_woolcock.pdf"};
+    m[p+"our_billing_explained_pdf"]={url:E+"/our_billing_explained.pdf"};
+    
 })();
