@@ -2,7 +2,9 @@
     <script>
         function F__ID(){
             //--------------------------------------------------------
-            var u=window.location.origin+"/auth.html"
+            var u=window.location.origin;
+            if(u=="http://localhost:8000") u=u+"/auth.html";
+            else u=u+"/wimr-snapforms/auth.html"
             $vm.auth_signin=function(){
                 //$vm.signin();
                 
