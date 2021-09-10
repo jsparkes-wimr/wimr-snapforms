@@ -13,7 +13,7 @@
             if(m.prefix==undefined) m.prefix="";
             var p=m.prefix;
             $('#D__ID').on('load',function(){
-                var url=$vm.module_list[p+"email-appointment-confirmation"].url;
+                var url=$vm.module_list[p+"template-appointment-confirmation"].url;
                 $.get(url+'?_='+$vm.ver[0],function(txt){
                     var data=m.input.data;
                     txt=txt.replace('[FIRST_NAME]',data.first_name);                    
@@ -32,7 +32,7 @@
                     email:data.email,
                     subject:data.template
                 }
-                $vm.request({cmd:'flow',flowid:data.template,data:d},function(res){
+                $vm.request({cmd:'flow',flowid:"Appointment Confirmation",data:d},function(res){
                     if(res.status=="ok") alert("The email has been sent.");
 					else if(res.status=="np") alert("No permissions.");
                 })
