@@ -14,12 +14,12 @@
             var p=m.prefix;
             $('#D__ID').on('load',function(){
                 var url=$vm.module_list[p+"template-sleep-registration"].url;
+                var snap_root="https://wimr.snapforms.com.au/form/sleep-registration";
                 $.get(url+'?_='+$vm.ver[0],function(txt){
                     var data=m.input.data;
                     txt=txt.replace('[FIRST_NAME]',data.first_name);                    
-                    txt=txt.replace('[APPOINTMENT_WITH]',data.appointment_with);                    
-                    txt=txt.replace('[APPOINTMENT_LINK]',data.appointment_link);                    
-                    txt=txt.replace('[APPOINTMENT_LINK]',data.appointment_link);                    
+                    txt=txt.replace('[SNAPFORMS_URL]',snap_root+data.snapforms_url);                    
+                    txt=txt.replace('[SNAPFORMS_URL]',snap_root+data.snapforms_url);                    
                     $('#preview__ID').html(txt);
                 },'text');
             })
