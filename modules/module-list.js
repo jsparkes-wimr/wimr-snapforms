@@ -11,6 +11,7 @@
     m[p+"preview-appointment-confirmation"]={url:H+"/business/preview-email/appointment-confirmation.html",prefix:p};
     m[p+"preview-consult-registration"]={url:H+"/business/preview-email/consult-registration.html",prefix:p};
     m[p+"preview-sleep-registration"]={url:H+"/business/preview-email/sleep-registration.html",prefix:p};
+    m[p+"preview-email-template"]={url:H+"/business/preview-email/template.html",prefix:p,router:1};
 
     
     m[p+"template-appointment-confirmation"]={url:E+"/appointment-confirmation.html"};
