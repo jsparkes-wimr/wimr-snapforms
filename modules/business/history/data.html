@@ -6,7 +6,12 @@
     function F__ID(){
         //-------------------------------------
         //VmInclude:__COMPONENT__/g/grid.01.js
-        var fields="First_Name,Surname,Date of Birth, Email_Address, Email_Subject";
+        var fields=
+        `First_Name|first_name,
+        Surname|last_name,
+        Date of Birth|date_of_birth,
+        Email_Address|email,
+        Email_Template|template`;
         m.fields=fields+",Submit_date,Submitted_by";
         //-------------------------------------
         $('#new__ID').hide();

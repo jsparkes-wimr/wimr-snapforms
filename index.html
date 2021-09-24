@@ -31,7 +31,7 @@
         <!----------------------------------------------->
         <script app code>
             //---------------------------------------------
-            $VmAPI={};$vm.ver=[0.17,0.01]; $vm['jquery-ui-min-js']=1;
+            $VmAPI={};$vm.ver=[0.18,0.01]; $vm['jquery-ui-min-js']=1;
             $vm.flexindex=new FlexSearch({  doc: {id: "id",field: ["title","contents"]}    });
             $vm.hosting_path=window.location.href.substring(0, window.location.href.split('?')[0].lastIndexOf('/'));
             //---------------------------------------------
@@ -82,10 +82,12 @@
             }
             $vm.api_default="wimr";
             $vm.api_address='https://wimr-snapforms.woolcock.org.au';
+            $vm.email_template_url="https://vmiis.github.io/wimr-email-templates";
             if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost'){ 
                 $vm.localhost=true;
                 $vm.api_addresses.wimr="https://wimr-snapforms.woolcock.org.au:442";
                 $vm.api_address='https://wimr-snapforms.woolcock.org.au:442';
+                $vm.email_template_url="http://localhost:8000/vmiis/wimr-email-templates";
             }
             $vm._id=0;$vm.reload='';$vm.debug_message=true;
             //---------------------------------------------

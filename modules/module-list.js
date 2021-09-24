@@ -7,13 +7,17 @@
     var m=$vm.module_list;
     var api="wimr";
     //-------------------------------------------------------------------------------------
-    m[p+"send_email"]={url:H+"/business/send-email/form.html",prefix:p,router:1};
+    m[p+"prepare-email"]={url:H+"/business/prepare-email/form.html",prefix:p,router:1};
     m[p+"preview-appointment-confirmation"]={url:H+"/business/preview-email/appointment-confirmation.html",prefix:p};
     m[p+"preview-consult-registration"]={url:H+"/business/preview-email/consult-registration.html",prefix:p};
     m[p+"preview-sleep-registration"]={url:H+"/business/preview-email/sleep-registration.html",prefix:p};
     m[p+"preview-email-template"]={url:H+"/business/preview-email/template.html",prefix:p,router:1};
 
-    m[p+"history"]={url:H+"/business/history/data.html",prefix:p,router:1};
+    m[p+"preview-and-send-email"]={url:H+"/business/preview-and-send-email/form.html",api:api,Table:'email_log',prefix:p};
+
+
+
+    m[p+"history"]={url:H+"/business/history/data.html",Table:'email_log',prefix:p,router:1};
     
     m[p+"template-appointment-confirmation"]={url:E+"/appointment-confirmation.html"};
     m[p+"template-consult-registration"]={url:E+"/consult-registration.html"};

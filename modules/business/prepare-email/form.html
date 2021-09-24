@@ -41,9 +41,25 @@
 					<span><b>Email Template</b></span>
 					<select name=Template required >
                         <option></option>
-                        <option>Appointment Confirmation</option>
+                        <option value=home-based-sleep-study.html>Home-based Sleep Study</option>
+                        <option value=overnight-and-daytime-sleep-study.html>Overnight & Daytime Sleep Study</option>
+                        <option value=overnight-and-daytime-sleep-study-self-funded.html>Overnight & Daytime Sleep Study Self-Funded</option>
+                        <option value=overnight-diagnostic-sleep-study.html>Overnight Diagnostic Sleep Study</option>
+                        <option value=overnight-diagnostic-sleep-study-self-funded.html>Overnight Diagnostic Sleep Study Self-Funded</option>
+                        <option value=overnight-sleep-study-hba.html>Overnight Sleep Study HBA</option>
+                        <option value=cpap-pressure-determination-study.html>CPAP Pressure Determination Study</option>
+                        <option value=cpap-review-and-daytime-sleep-studies.html>CPAP Review & Daytime Sleep Studies</option>
+                        <option value=cpap-review-study.html>CPAP Review Study</option>
+                        <option value=paediatric-overnight-and-daytime-sleep-study.html>Paediatric Overnight & Daytime Sleep Study</option>
+                        <option value=sleep-study-pre-assessment-f2f.html>Sleep Study Pre-Assessment (F2F)</option>
+                        <option value=sleep-study-pres-assessment-phone.html>Sleep Study Pres-Assessment (Phone)</option>
+                        <option value=sleep-study-confirmation.html>Sleep Study Confirmation</option>
+						<!--
+						<option>Appointment Confirmation</option>
                         <option>Consult Registration</option>
                         <option>Sleep Registration</option>
+						-->
+
                     </select>
 				</div>
 			</div>
@@ -90,6 +106,7 @@
 				*/
 				var m=$vm.module_list['__MODULE__'];
 				var p=m.prefix;
+				/*
 				var name="";
 				switch(Template){
 					case "Appointment Confirmation": name="preview-appointment-confirmation"; break;
@@ -97,6 +114,8 @@
 					case "Sleep Registration": name="preview-sleep-registration"; break;
 				}
 				if(name!="") $vm.show_module(p+name,{data:data});
+				*/
+				$vm.show_module(p+'preview-and-send-email',{data:data});
             })
 			//-------------------------------------
 		}
