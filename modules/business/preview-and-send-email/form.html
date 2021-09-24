@@ -22,8 +22,9 @@
             })
 			//-------------------------------------
 			var data_process=function(txt){
-                var snap_root="https://wimr.snapforms.com.au/form/";
+                //var snap_root="https://wimr.snapforms.com.au/form/";
                 var data=m.input.data;
+                /*
                 var snapform_id="";
                 switch(data.template){
                     case "sleep-registration.html": 
@@ -33,10 +34,11 @@
                         snapform_id="sleep-registration";
                         break;
                 }
+                */
                 txt=txt.replace(/\[FIRST_NAME\]/g,data.first_name);                    
                 txt=txt.replace(/\[APPOINTMENT_WITH\]/g,data.appointment_with);                    
                 txt=txt.replace(/\[APPOINTMENT_LINK\]/g,data.appointment_link);                    
-                txt=txt.replace(/\[SNAPFORMS_URL\]/g,snap_root+snapform_id+data.snapforms_url);                    
+                txt=txt.replace(/\[SNAPFORMS_URL\]/g,data.snapforms_url);                    
                 return txt;
             }
             //-------------------------------------
