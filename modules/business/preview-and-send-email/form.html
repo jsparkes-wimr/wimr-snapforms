@@ -36,8 +36,13 @@
                 }
                 */
                 txt=txt.replace(/\[FIRST_NAME\]/g,data.first_name);                    
+                txt=txt.replace(/\[LAST_NAME\]/g,data.last_name);                    
+                txt=txt.replace(/\[DOB\]/g,data.date_of_birth);                    
+                txt=txt.replace(/\[EMAIL\]/g,data.email);                    
                 txt=txt.replace(/\[APPOINTMENT_WITH\]/g,data.appointment_with);                    
                 txt=txt.replace(/\[APPOINTMENT_LINK\]/g,data.appointment_link);                    
+                txt=txt.replace(/\[APPOINTMENT_DATE\]/g,data.appointment_date);                    
+                txt=txt.replace(/\[APPOINTMENT_TIME\]/g,data.appointment_time);                    
                 txt=txt.replace(/\[SNAPFORMS_URL\]/g,data.snapforms_url);                    
                 return txt;
             }
