@@ -69,8 +69,9 @@
                         flowid="sleepreferrals";
                         break;
                     default: 
-                        subject="Subject";
-                        flowid="reception";
+                        subject=data.template.replace('.html','').replace(/_/g,' ').replace(/-/g,' ');
+                        subject=subject.charAt(0).toUpperCase() + subject.slice(1);
+                        flowid="sleepreferrals";
                         break;
                 }
                 var d={
