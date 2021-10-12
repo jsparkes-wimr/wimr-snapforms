@@ -62,7 +62,8 @@
                 var h=$('#preview__ID').html();
                 var data=m.input.data;
                 var subject="";
-                var flowid="";
+                var flowid=data.template;
+                /*
                 switch(data.template){
                     case "sleep-registration.html": 
                         subject="Sleep Registration";
@@ -74,6 +75,7 @@
                         flowid="sleepreferrals";
                         break;
                 }
+                */
                 var d={
                     body:btoa(unescape(encodeURIComponent(h))),
                     email:data.email,

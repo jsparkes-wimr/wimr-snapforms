@@ -14,14 +14,15 @@
                         <option value=overnight-and-daytime-sleep-study-self-funded.html>Overnight & Daytime Sleep Study Self-Funded</option>
                         <option value=overnight-diagnostic-sleep-study.html>Overnight Diagnostic Sleep Study</option>
                         <option value=overnight-diagnostic-sleep-study-self-funded.html>Overnight Diagnostic Sleep Study Self-Funded</option>
-                        <option value=overnight-sleep-study-hba.html>Overnight Sleep Study HBA</option>
+						<option value=overnight-sleep-study-hba.html>Overnight Sleep Study HBA</option>
                         <option value=cpap-pressure-determination-study.html>CPAP Pressure Determination Study</option>
                         <option value=cpap-review-and-daytime-sleep-studies.html>CPAP Review & Daytime Sleep Studies</option>
                         <option value=cpap-review-study.html>CPAP Review Study</option>
+                        <option value=paediatric-overnight-sleep-study.html>Paediatric Overnight Sleep Study</option>
                         <option value=paediatric-overnight-and-daytime-sleep-study.html>Paediatric Overnight & Daytime Sleep Study</option>
                         <option value=sleep-study-pre-assessment-f2f.html>Sleep Study Pre-Assessment (F2F)</option>
                         <option value=sleep-study-pres-assessment-phone.html>Sleep Study Pres-Assessment (Phone)</option>
-                        <option value=sleep-study-confirmation.html>Sleep Study Confirmation</option>
+						<option value=sleep-study-confirmation.html>Sleep Study Confirmation</option>
 						
 						<option value=appointment-confirmation.html>Appointment Confirmation</option>
                         <option value=consult-registration.html>Consult Registration</option>
@@ -42,7 +43,7 @@
 			<div class=r__ID>
 				<div w='100|50'>
 					<span><b>Date of Birth</b></span>
-					<input type=date name=Date_of_Birth ></input>
+					<input type=date name=Date_of_Birth required ></input>
 				</div>
 				<div w='100|50'>
 					<span><b>Email Address</b></span>
@@ -73,7 +74,8 @@
 			</div>
 			<div class=r__ID>
 				<div w='100|100'>
-                    <button id=submit__ID type=button >Preview Email</button>
+                    <button type=submit >Preview Email</button>
+                    <button id=submit__ID type=button style='display:none'>Preview Email</button>
 				</div>
 			</div>
 			<br><br>
@@ -86,6 +88,10 @@
 			/*V mInclude:__COMPONENT__/f/form.01.js*/
 			new ResizeObserver($vm.responsive).observe(form_container__ID);
 			//-------------------------------------
+			$('#F__ID').submit( function(){
+				$('#submit__ID').triggerHandler('click');
+				return false;
+			})
             $('#submit__ID').on('click',function(){
                 var First_Name=$('#F__ID input[name=First_Name]').val();
                 var Last_Name=$('#F__ID input[name=Last_Name]').val();
@@ -110,36 +116,11 @@
                     snapforms_url: URL,
 					template:Template
                 }
-                /*
-				$vm.request({cmd:'flow',flowid:$('#F__ID select[name=Template]').val(),data:data},function(res){
-                    if(res.status=="ok") alert("The email has been sent.");
-					else if(res.status=="np") alert("No permissions.");
-                })
-				*/
 				var m=$vm.module_list['__MODULE__'];
 				var p=m.prefix;
-				/*
-				var name="";
-				switch(Template){
-					case "Appointment Confirmation": name="preview-appointment-confirmation"; break;
-					case "Consult Registration": name="preview-consult-registration"; break;
-					case "Sleep Registration": name="preview-sleep-registration"; break;
-				}
-				if(name!="") $vm.show_module(p+name,{data:data});
-				*/
 				$vm.show_module(p+'preview-and-send-email',{data:data});
             })
 			//-------------------------------------
-			/*
-			$('#D__ID').on('load',function(){
-				//if($('#D__ID select[name=Template]').val()==''){
-					//alert(1)
-					$('#s__ID').triggerHandler('mousedown');
-					//$('#D__ID select[name=Template]').triggerHandler('mousedown');
-				//}
-
-			})
-			*/
 		}
     </script>
     <style>
