@@ -1,0 +1,134 @@
+<div id=D__ID>
+    <section id=form_container__ID bp=576 style='display:flow-root;'>
+        <div class=header__ID>
+            <h1 class=t1__ID>Send Email to Patient (Sleep Booking)</h1>
+        </div>
+    	<form id=F__ID>
+			<div class=r__ID>
+				<div w='100|100'>
+					<span><b>Email Template</b></span>
+					<select name=Template required id=s__ID >
+                        <option></option>
+                        <option value=home-based-sleep-study.html>Home-based Sleep Study</option>
+                        <option value=overnight-and-daytime-sleep-study.html>Overnight & Daytime Sleep Study</option>
+                        <option value=overnight-and-daytime-sleep-study-self-funded.html>Overnight & Daytime Sleep Study Self-Funded</option>
+                        <option value=overnight-diagnostic-sleep-study.html>Overnight Diagnostic Sleep Study</option>
+                        <option value=overnight-diagnostic-sleep-study-self-funded.html>Overnight Diagnostic Sleep Study Self-Funded</option>
+						<option value=overnight-sleep-study-hba.html>Overnight Sleep Study HBA</option>
+                        <option value=cpap-pressure-determination-study.html>CPAP Pressure Determination Study</option>
+                        <option value=cpap-review-and-daytime-sleep-studies.html>CPAP Review & Daytime Sleep Studies</option>
+                        <option value=cpap-review-study.html>CPAP Review Study</option>
+                        <option value=paediatric-overnight-sleep-study.html>Paediatric Overnight Sleep Study</option>
+                        <option value=paediatric-overnight-and-daytime-sleep-study.html>Paediatric Overnight & Daytime Sleep Study</option>
+                        <option value=sleep-study-pre-assessment-f2f.html>Sleep Study Pre-Assessment (F2F)</option>
+                        <option value=sleep-study-pres-assessment-phone.html>Sleep Study Pre-Assessment (Phone)</option>
+                        <option value=sleep-study-pres-assessment-video.html>Sleep Study Pre-Assessment (Video)</option>
+						<option value=sleep-study-confirmation.html>Sleep Study Confirmation</option>
+						
+						<option value=appointment-confirmation.html>Appointment Confirmation</option>
+                        <option value=consult-registration.html>Consult Registration</option>
+                        <option value=sleep-registration.html>Sleep Registration</option>
+                        <option value=paediatric-consult-registration.html>Paediatric Consult Registration</option>
+                    </select>
+				</div>
+			</div>
+			<div class=r__ID>
+				<div w='100|50'>
+					<span><b>First Name</b></span>
+					<input type="text" name=First_Name required autocomplete=off required />
+				</div>
+				<div w='100|50'>
+					<span><b>Last Name</b></span>
+					<input type=text name=Last_Name required autocomplete=off required />
+				</div>
+			</div>
+			<div class=r__ID>
+				<div w='100|50'>
+					<span><b>Date of Birth</b></span>
+					<input type=date name=Date_of_Birth required ></input>
+				</div>
+				<div w='100|50'>
+					<span><b>Email Address</b></span>
+					<input type=text name=Email required></input>
+				</div>
+			</div>
+			<div class=r__ID>
+				<div w='100|50'>
+					<span><b>Appointment date</b></span>
+					<input type=date name=Appointment_date ></input>
+				</div>
+				<div w='100|50'>
+					<span><b>Appointment time</b></span>
+					<input type=time name=Appointment_time></input>
+				</div>
+			</div>
+			<div class=r__ID>
+				<div w='100|50'>
+					<span><b>Appointment with</b></span>
+					<input type=text name=Appointment_with ></input>
+				</div>
+			</div>
+			<div class=r__ID>
+				<div w='100|100'>
+					<span><b>Appointment Link</b></span>
+					<input type=text name=Appointment_link ></input>
+				</div>
+			</div>
+			<div class=r__ID>
+				<div w='100|100'>
+                    <button type=submit >Preview Email</button>
+                    <button id=submit__ID type=button style='display:none'>Preview Email</button>
+				</div>
+			</div>
+			<br><br>
+    	</form>
+    </section>
+	VmInclude:__COMPONENT__/m/model.01.html
+    <script>
+    	function F__ID(){
+    		//-------------------------------------
+			/*V mInclude:__COMPONENT__/f/form.01.js*/
+			new ResizeObserver($vm.responsive).observe(form_container__ID);
+			//-------------------------------------
+			$('#F__ID').submit( function(){
+				$('#submit__ID').triggerHandler('click');
+				return false;
+			})
+            $('#submit__ID').on('click',function(){
+                var First_Name=$('#F__ID input[name=First_Name]').val();
+                var Last_Name=$('#F__ID input[name=Last_Name]').val();
+                var Date_of_Birth=$('#F__ID input[name=Date_of_Birth]').val();
+                var Email=$('#F__ID input[name=Email]').val();
+                var Appointment_with=$('#F__ID input[name=Appointment_with]').val();
+                var Appointment_link=$('#F__ID input[name=Appointment_link]').val();
+                var Appointment_date=$('#F__ID input[name=Appointment_date]').val();
+                var Appointment_time=$('#F__ID input[name=Appointment_time]').val();
+                var Template=$('#F__ID select[name=Template]').val();
+                var URL="?first name="+First_Name+"&surname="+Last_Name+"&dob="+$vm.yyyymmdd_to_ddmmyyyy(Date_of_Birth);
+                URL=encodeURI(URL);
+				var data={
+                    first_name: First_Name,
+                    last_name: Last_Name,
+                    date_of_birth: $vm.yyyymmdd_to_ddmmyyyy(Date_of_Birth),
+                    email: Email,
+                    appointment_with: Appointment_with,
+                    appointment_link: Appointment_link,
+                    appointment_date: $vm.yyyymmdd_to_ddmmyyyy(Appointment_date),
+                    appointment_time: Appointment_time,
+                    snapforms_url: URL,
+					template:Template
+                }
+				var m=$vm.module_list['__MODULE__'];
+				var p=m.prefix;
+				$vm.show_module(p+'preview-and-send-email',{data:data});
+            })
+			//-------------------------------------
+		}
+    </script>
+    <style>
+        #form_container__ID{
+            max-width:700px;
+        }
+		/*VmInclude:__CURRENT_PATH__form.css*/
+    </style>
+</div>

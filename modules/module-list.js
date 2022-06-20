@@ -7,7 +7,8 @@
     var m=$vm.module_list;
     var api="wimr";
     //-------------------------------------------------------------------------------------
-    m[p+"prepare-email"]={url:H+"/business/prepare-email/form.html",prefix:p,router:1};
+    m[p+"prepare-email-sleep-booking"]={url:H+"/business/prepare-email-sleep-booking/form.html",prefix:p,router:1};
+    m[p+"prepare-email-reception"]={url:H+"/business/prepare-email-reception/form.html",prefix:p,router:1};
     m[p+"preview-appointment-confirmation"]={url:H+"/business/preview-email/appointment-confirmation.html",prefix:p};
     m[p+"preview-consult-registration"]={url:H+"/business/preview-email/consult-registration.html",prefix:p};
     m[p+"preview-sleep-registration"]={url:H+"/business/preview-email/sleep-registration.html",prefix:p};
@@ -27,4 +28,5 @@
     //m[p+"our_billing_explained_pdf"]={url:E+"/our_billing_explained.pdf"};
     //m[p+"history"]={url:H+"/business/history/data.html",api:"wimr",Table:'email-log',router:1};
     
+    m[p+"registration"]={url:H+"/business/registration/form.html",prefix:p,router:1};
 })();

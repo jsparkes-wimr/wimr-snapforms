@@ -1,0 +1,108 @@
+<div id=D__ID>
+    <section id=form_container__ID bp=576 style='display:flow-root;'>
+        <div class=header__ID>
+            <h1 class=t1__ID>Registration</h1>
+        </div>
+    	<form id=F__ID>
+			<div class=r__ID>
+				<div w='100|50'>
+					<span><b>Patient</b></span>
+					<select name=Patient autocomplete=off required>
+						<option value="new">New</option>
+						<option value="existing">Existing</option>
+					</select>
+				</div>
+				<div w='100|50'>
+					<span><b>Adult or Paed</b></span>
+					<select name=Adult autocomplete=off required>
+						<option value="adult">Adult</option>
+						<option value="paed">Paed</option>
+					</select>
+				</div>
+			</div>
+			<div class=r__ID>
+				<div w='100|50'>
+					<span><b>Research or Clinic</b></span>
+					<select name=Research autocomplete=off required>
+						<option value="research">Research</option>
+						<option value="clinic">Clinic</option>
+					</select>
+				</div>
+				<div w='100|50'>
+					<span><b>Consult or Sleep</b></span>
+					<select name=Consult autocomplete=off required>
+						<option value="consult">Consult</option>
+						<option value="sleep">Sleep</option>
+					</select>
+				</div>
+			</div>
+			<div class=r__ID>
+				<div w='100|50'>
+					<span><b>First Name</b></span>
+					<input type="text" name=First_Name required autocomplete=off required />
+				</div>
+				<div w='100|50'>
+					<span><b>Last Name</b></span>
+					<input type=text name=Last_Name required autocomplete=off required />
+				</div>
+			</div>
+			<div class=r__ID>
+				<div w='100|50'>
+					<span><b>Date of Birth</b></span>
+					<input type=date name=Date_of_Birth required ></input>
+				</div>
+			</div>
+			<div class=r__ID>
+				<div w='100|100'>
+                    <button type=submit >Open SnapForms</button>
+                    <button id=submit__ID type=button style='display:none'>Preview Email</button>
+				</div>
+			</div>
+			<br><br>
+    	</form>
+    </section>
+	VmInclude:__COMPONENT__/m/model.01.html
+    <script>
+    	function F__ID(){
+    		//-------------------------------------
+			/*V mInclude:__COMPONENT__/f/form.01.js*/
+			new ResizeObserver($vm.responsive).observe(form_container__ID);
+			//-------------------------------------
+			$('#F__ID').submit( function(){
+				$('#submit__ID').triggerHandler('click');
+				return false;
+			})
+            $('#submit__ID').on('click',function(){
+				var First_Name=$('#F__ID input[name=First_Name]').val();
+                var Last_Name=$('#F__ID input[name=Last_Name]').val();
+                var Date_of_Birth=$vm.yyyymmdd_to_ddmmyyyy($('#F__ID input[name=Date_of_Birth]').val());
+                var Patient=$('#F__ID select[name=Patient]').val();
+                var Adult=$('#F__ID select[name=Adult]').val();
+                var Research=$('#F__ID select[name=Research]').val();
+                var Consult=$('#F__ID select[name=Consult]').val();
+
+				var txt="https://wimr.snapforms.com.au/form/registration"
+				txt+="?new%20patient=[PATIENT]";
+				txt+="&adult%20or%20paed=[Adult]";
+				txt+="&research%20or%20clinic=[Research]";
+				txt+="&consult%20or%20sleep=[Consult]";
+				txt+="&first%20name=[FIRST_NAME]&last%20name=[LAST_NAME]&dob=[DOB]";
+                txt=txt.replace(/\[PATIENT\]/g,Patient);                    
+                txt=txt.replace(/\[Adult\]/g,Adult);                    
+                txt=txt.replace(/\[Research\]/g,Research);                    
+                txt=txt.replace(/\[Consult\]/g,Consult);                    
+                txt=txt.replace(/\[FIRST_NAME\]/g,First_Name);                    
+                txt=txt.replace(/\[LAST_NAME\]/g,Last_Name);                    
+                txt=txt.replace(/\[DOB\]/g,Date_of_Birth);                    
+				window.open(txt);
+            })
+			//-------------------------------------
+		}
+    </script>
+    <style>
+        #form_container__ID{
+            max-width:700px;
+        }
+		/*VmInclude:__CURRENT_PATH__form.css*/
+    </style>
+</div>
