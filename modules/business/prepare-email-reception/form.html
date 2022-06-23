@@ -33,11 +33,18 @@
 				</div>
 			</div>
 			<div class=r__ID>
-				<div w='100|50'>
+				<div w='100|33'>
+					<span><b>Patient</b></span>
+					<select name=Patient autocomplete=off required>
+						<option value="new">New</option>
+						<option value="existing">Existing</option>
+					</select>
+				</div>
+				<div w='100|33'>
 					<span><b>First Name</b></span>
 					<input type="text" name=First_Name required autocomplete=off required />
 				</div>
-				<div w='100|50'>
+				<div w='100|33'>
 					<span><b>Last Name</b></span>
 					<input type=text name=Last_Name required autocomplete=off required />
 				</div>
@@ -95,6 +102,7 @@
 				return false;
 			})
             $('#submit__ID').on('click',function(){
+                var Patient=$('#F__ID input[name=Patient]').val();
                 var First_Name=$('#F__ID input[name=First_Name]').val();
                 var Last_Name=$('#F__ID input[name=Last_Name]').val();
                 var Date_of_Birth=$('#F__ID input[name=Date_of_Birth]').val();
@@ -107,6 +115,7 @@
                 var URL="?first name="+First_Name+"&surname="+Last_Name+"&dob="+$vm.yyyymmdd_to_ddmmyyyy(Date_of_Birth);
                 URL=encodeURI(URL);
 				var data={
+					patient:Patient,
                     first_name: First_Name,
                     last_name: Last_Name,
                     date_of_birth: $vm.yyyymmdd_to_ddmmyyyy(Date_of_Birth),
