@@ -15,6 +15,7 @@
             $('#D__ID').on('load',function(){
                 var data=m.input.data;
                 var url=$vm.email_template_url+"/"+data.template;
+                $('#preview__ID').html('');
                 $.get(url+'?_='+$vm.ver[0],function(txt){
                     var html=data_process(txt);
                     $('#preview__ID').html(html);
@@ -62,7 +63,8 @@
             $('#send__ID').on('click',function(){
                 var h=$('#preview__ID').html();
                 var data=m.input.data;
-                var subject="";
+                //var subject="";
+                if(data.subject==undefined) data.subject="";
                 var flowid=data.template;
                 /*
                 switch(data.template){
@@ -80,7 +82,7 @@
                 var d={
                     body:btoa(unescape(encodeURIComponent(h))),
                     email:data.email,
-                    subject:subject
+                    subject:data.subject
                 }
                 //insert_record(data);
                 

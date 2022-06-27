@@ -9,26 +9,26 @@
 					<span><b>Email Template</b></span>
 					<select name=Template required id=s__ID >
                         <option></option>
-                        <option value=home-based-sleep-study.html>Home-based Sleep Study</option>
-                        <option value=overnight-and-daytime-sleep-study.html>Overnight & Daytime Sleep Study</option>
-                        <option value=overnight-and-daytime-sleep-study-self-funded.html>Overnight & Daytime Sleep Study Self-Funded</option>
-                        <option value=overnight-diagnostic-sleep-study.html>Overnight Diagnostic Sleep Study</option>
-                        <option value=overnight-diagnostic-sleep-study-self-funded.html>Overnight Diagnostic Sleep Study Self-Funded</option>
-						<option value=overnight-sleep-study-hba.html>Overnight Sleep Study HBA</option>
-                        <option value=cpap-pressure-determination-study.html>CPAP Pressure Determination Study</option>
-                        <option value=cpap-review-and-daytime-sleep-studies.html>CPAP Review & Daytime Sleep Studies</option>
-                        <option value=cpap-review-study.html>CPAP Review Study</option>
-                        <option value=paediatric-overnight-sleep-study.html>Paediatric Overnight Sleep Study</option>
-                        <option value=paediatric-overnight-and-daytime-sleep-study.html>Paediatric Overnight & Daytime Sleep Study</option>
-                        <option value=sleep-study-pre-assessment-f2f.html>Sleep Study Pre-Assessment (F2F)</option>
-                        <option value=sleep-study-pres-assessment-phone.html>Sleep Study Pre-Assessment (Phone)</option>
-                        <option value=sleep-study-pres-assessment-video.html>Sleep Study Pre-Assessment (Video)</option>
-						<option value=sleep-study-confirmation.html>Sleep Study Confirmation</option>
-						
-						<option value=appointment-confirmation.html>Appointment Confirmation</option>
-                        <option value=consult-registration.html>Consult Registration</option>
-                        <option value=sleep-registration.html>Sleep Registration</option>
-                        <option value=paediatric-consult-registration.html>Paediatric Consult Registration</option>
+                        <option value=alex-fois>alex-fois</option>
+                        <option value=chetan-pandit>chetan-pandit</option>
+                        <option value=chris-blackwell-f2f>chris-blackwell-f2f</option>
+                        <option value=chris-blackwell-skype>chris-blackwell-skype</option>                       
+						<option value=michelle-donegan>michelle-donegan</option>
+						<option value=keith-johnson>keith-johnson</option>
+                        <option value=kishani-kannangara>kishani-kannangara</option>
+						<option value=exercise-physiology>exercise-physiology</option>
+						<option value=nick-stow>nick-stow</option>
+                        <option value=geshani-jayasuriya-f2f>geshani-jayasuriya-f2f</option>
+						<option value=geshani-jayasuriya-PEXIP>geshani-jayasuriya-PEXIP</option>
+						<option value=mimi-lu>mimi-lu</option>
+						<option value=oustanding-invoice>oustanding-invoice</option>
+						<option value=paediatric-sleep-specialist>paediatric-sleep-specialist</option>
+						<option value=psychiatry>psychiatry</option>
+						<option value=psychology>psychology</option>
+						<option value=respiratory-physician>respiratory-physician</option>
+						<option value=respiratory-test>respiratory-test</option>
+						<option value=simon-lewis>simon-lewis</option>
+						<option value=sleep-specialist>sleep-specialist</option>
                     </select>
 				</div>
 			</div>
@@ -125,8 +125,11 @@
                     appointment_date: $vm.yyyymmdd_to_ddmmyyyy(Appointment_date),
                     appointment_time: Appointment_time,
                     snapforms_url: URL,
-					template:Template
+					template:Template,
+					subject:Template
                 }
+
+
 				var m=$vm.module_list['__MODULE__'];
 				var p=m.prefix;
 				$vm.show_module(p+'preview-and-send-email',{data:data});
